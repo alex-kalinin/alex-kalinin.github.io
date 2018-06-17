@@ -9,8 +9,9 @@ name: Alex Kalinin
 description: Notes on Deep Learning, Big Data and Other Random Things
 
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
-avatar: 
-
+avatar:
+logo: 'assets/images/logo.png'
+favicon: 'assets/images/logo.png'
 #
 # Flags below are optional
 #
@@ -105,6 +106,6 @@ paginate_path: /page:num/
 # Other
 markdown: kramdown
 highlighter: rouge
-
+s
 
 theme: jekyll-theme-dinky

@@ -1,8 +1,3 @@
----
-layout: post
-title: Building Docker Container for Spark/BigDL Image Recognition Demo
----
-
 In this post I will walk you through the steps to set up a working environment for the hands-on part of my workhop on Image Recognition with Spark/BigDL. If you want to jump to the workshop part right away, you can download a pre-built docker image from [https://hub.docker.com/r/kalininalex/lenet-bigdl/](https://hub.docker.com/r/kalininalex/lenet-bigdl/).
 
 We'll now create a docker image from scratch. First, we need to choose a base image, such as Ubuntu Linux distribution. Let's download such image first:
