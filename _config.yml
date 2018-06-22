@@ -106,6 +106,5 @@ paginate_path: /page:num/
 # Other
 markdown: kramdown
 highlighter: rouge
-s
 
 theme: jekyll-theme-dinky
