@@ -194,7 +194,7 @@ The Jupyter will print a URL that you can use to connect to the notebook. The ou
 
 Switch to you host computer, open a browser and connect to this URL. You should see the Jupyter notebook: 
 
-![Jupyter start-up screen](create-docker-container-for-spark-bigdl-lenet-demo/image-jupyter-root-dir.png "Jupyter root directory")
+![Jupyter start-up screen]({{site.baseurl}}/assets/2018-06-15-create-docker-container-for-spark-bigdl-lenet-demo/image-jupyter-root-dir.png "Jupyter root directory")
 
 Go to **`bigdl-notebooks/Workshop-1`** directory and click on the **`1. MNIST with LeNet-BigDL.ipynb`** file. It will open the notebook:
 
