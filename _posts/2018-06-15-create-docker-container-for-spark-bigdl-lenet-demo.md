@@ -194,11 +194,11 @@ The Jupyter will print a URL that you can use to connect to the notebook. The ou
 
 Switch to you host computer, open a browser and connect to this URL. You should see the Jupyter notebook: 
 
-![Jupyter start-up screen]({{site.baseurl}}/assets/2018-06-15-create-docker-container-for-spark-bigdl-lenet-demo/image-jupyter-root-dir.png "Jupyter root directory")
+![Jupyter root directory]({{site.baseurl}}/assets/2018-06-15-create-docker-container-for-spark-bigdl-lenet-demo/image-jupyter-root-dir.png "Jupyter root directory")
 
 Go to **`bigdl-notebooks/Workshop-1`** directory and click on the **`1. MNIST with LeNet-BigDL.ipynb`** file. It will open the notebook:
 
-![Jupyter start-up screen](create-docker-container-for-spark-bigdl-lenet-demo/image-jupyter-running-lenet.png "Jupyter LeNet Notebook")
+![Jupyter LeNet Notebook]({{site.baseurl}}/assets/2018-06-15-create-docker-container-for-spark-bigdl-lenet-demo/image-jupyter-running-lenet.png "Jupyter LeNet Notebook")
 
 The first cell will print the contents of the object **`sc`**. This object of type `SparkContext` is automatically created by Spark. Go ahead and run the first cell. If it prints the information about the `sc` object then your setup worked as expected and you can run the rest of the notebook. However, if it prints `NULL` or an empty string `''`, then something went wrong and you might want to re-trace your steps.
 
