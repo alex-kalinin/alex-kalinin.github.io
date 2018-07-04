@@ -1,5 +1,6 @@
 ---
 title: How to Create Self-Container Docker Container for Spark/BigDL Demo
+featured: true
 ---
 
 In this post I will walk you through the steps to set up a working environment for the hands-on part of my workhop on Image Recognition with Spark/BigDL. If you want to jump to the workshop part right away, you can download a pre-built docker image from [https://hub.docker.com/r/kalininalex/lenet-bigdl/](https://hub.docker.com/r/kalininalex/lenet-bigdl/).

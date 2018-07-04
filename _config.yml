@@ -19,7 +19,7 @@ favicon: 'assets/images/logo.png'
 # Includes an icon in the footer for each username you enter
 footer-links:
   email:
-  github: htts://github.com/alex-kalinin
+  github: https://github.com/alex-kalinin
   linkedin:
   rss: # just type anything here for a working RSS icon
   # twitter: jekyllrb
@@ -37,7 +37,7 @@ google_analytics:
 
 # Your website URL (e.g. http://barryclark.github.io or http://www.barryclark.co)
 # Used for Sitemap.xml and your RSS feed
-url:
+url: https://www.alexkalinin.com
 
 # If you're hosting your site at a Project repository on GitHub pages
 # (http://yourusername.github.io/repository-name)
