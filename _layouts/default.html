@@ -107,7 +107,7 @@
 
 <!-- Bottom Alert Bar
 ================================================== -->
-<div class="alertbar">
+<!--div class="alertbar">
 	<div class="container text-center">
 		<span><img src="{{ site.baseurl }}/{{ site.logo }}" alt="{{site.title}}"> &nbsp; Never miss a <b>story</b> from me, subscribe to my newsletter</span>
         <form action="{{site.mailchimp-list}}" method="post" name="mc-embedded-subscribe-form" class="wj-contact-form validate" target="_blank" novalidate>
@@ -117,38 +117,13 @@
             </div>
         </form>
 	</div>
-</div>    
+</div -->    
     
 </div><!-- /.container>
     
-<!-- Categories Jumbotron
-================================================== -->
-<div class="jumbotron fortags">
-	<div class="row">
-		<div class="col-md-4 align-self-center text-center">
-			<h2 class="d-md-block d-none">Explore →</h2>
-		</div>
-		<div class="col-md-8 align-self-center text-center">
-          {% assign tags_list = site.categories %}  
-          {% if tags_list.first[0] == null %}
-            {% for tag in tags_list %} 
-              <a href="{{ site.baseurl }}/category/{{ tag }}">{{ tag | capitalize }} {{ site.tags[tag].size }}</a>
-            {% endfor %}
-          {% else %}
-            {% for tag in tags_list %} 
-              <a href="{{ site.baseurl }}/category/{{ tag[0] }}">{{ tag[0] | capitalize }} ({{ tag[1].size }})</a>
-            {% endfor %}
-          {% endif %}
-        {% assign tags_list = nil %}
 
-		</div>
-	</div>
-</div>
- 
-
-
-<!-- Begin Footer
-================================================== -->
+<!-- Begin Footer -->
+<!-- ================================================== -->
 <footer class="footer">
     <div class="container">
         <div class="row">
@@ -164,8 +139,8 @@
    
 </div> <!-- /.site-content>
 
-<!-- Bootstrap core JavaScript
-================================================== -->
+<!-- Bootstrap core JavaScript -->
+<!-- ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
     
 <script src="{{ site.baseurl }}/assets/js/jquery.min.js"></script>
