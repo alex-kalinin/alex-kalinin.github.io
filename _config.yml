@@ -6,7 +6,7 @@
 name: Alex Kalinin
 
 # Short bio or description (displayed in the header)
-description: Notes on Deep Learning, Big Data and Other Random Things
+description: Machile Learning for Engineers
 
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
 avatar:
@@ -19,7 +19,7 @@ favicon: 'assets/images/logo.png'
 # Includes an icon in the footer for each username you enter
 footer-links:
   email:
-  github: 
+  github: htts://github.com/alex-kalinin
   linkedin:
   rss: # just type anything here for a working RSS icon
   # twitter: jekyllrb
