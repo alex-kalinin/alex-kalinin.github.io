@@ -78,7 +78,7 @@ lines(true_normal.x, true_normal.y, col="red")
 
 # Inverse Transform Sampling
 
-Invers transform sampling relies on the fact, that if $X$ a random variable, $F$ is its cumulative distrubtion function (i.e. $F(x)$ is the probability of the value $\le$ x) then $F(x)$ is distributed *uniformly*. Let's test this statement:
+Inverse transform sampling relies on the fact, that if $X$ a random variable, $F$ is its cumulative distrubtion function (i.e. $F(x)$ is the probability of the value $\le$ x) then $F(x)$ is distributed *uniformly*. Let's test this statement:
 
 
 ```r
