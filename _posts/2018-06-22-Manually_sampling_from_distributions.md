@@ -74,7 +74,7 @@ true_normal.y <- dnorm(true_normal.x, mean=0, sd=1)
 lines(true_normal.x, true_normal.y, col="red")
 ```
 
-![]({{site.baseurl}}/Manually_sampling_from_distributions_files/figure-html/unnamed-chunk-5-1.png)<!-- -->
+![]({{site.baseurl}}/assets/Manually_sampling_from_distributions_files/figure-html/unnamed-chunk-5-1.png)<!-- -->
 
 # Inverse Transform Sampling
 
@@ -90,7 +90,7 @@ inverse_transform <- function () {
 inverse_transform()
 ```
 
-![]({{site.baseurl}}/Manually_sampling_from_distributions_files/figure-html/unnamed-chunk-6-1.png)<!-- -->
+![]({{site.baseurl}}/assets/Manually_sampling_from_distributions_files/figure-html/unnamed-chunk-6-1.png)<!-- -->
 
 Indeed, a comulative distrition function is approximately uniform. So, if we know a CDF $F$ for a *Normal* distribution, we can generate sample from a Normal distribution via the following steps:
 
@@ -127,4 +127,4 @@ true_normal.y <- dnorm(true_normal.x, mean=0, sd=1)
 lines(true_normal.x, true_normal.y, col="red")
 ```
 
-![]({{site.baseur}}/Manually_sampling_from_distributions_files/figure-html/unnamed-chunk-7-1.png)<!-- -->
+![]({{site.baseurl}}/assets/Manually_sampling_from_distributions_files/figure-html/unnamed-chunk-7-1.png)<!-- -->
