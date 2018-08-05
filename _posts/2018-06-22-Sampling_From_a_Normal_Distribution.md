@@ -7,22 +7,24 @@ output:
 ---
 
 
-Most (if not all) programming languages have random numbers generator functions that produce *uniformly* distributed values. What about random numbers from an arbiutrary, *non-unform* distribution?
+Most (if not all) programming languages have random number functions that produce *uniformly* distributed values. What about random numbers from an arbiutrary, *non-unform* distribution?
 
-In this post we'll explore several methods to generate random numbers from a *Normal* distribution. To simplify things a bit we'll work with a *standard* Normal distribution. This distrubtion has a mean $\mu = 0$, and standard deviation $\sigma = 1$. This choice doesn't limit us in any way because there's a one-to-one mapping between the standard Normal distrubtion and any other normal distribution wiht the mean of $\mu$ and variance of $\sigma$:
+In this post we'll explore several methods to generate random numbers from a *Normal* distribution. To simplify things a bit we'll work with a *standard* Normal distribution. This distrubtion has a mean $\mu = 0$, and a standard deviation $\sigma = 1$. This choice doesn't limit us in any way because there's a one-to-one mapping between the standard Normal distrubtion and any other normal distribution with the mean of $\mu$ and variance of $\sigma$:
+
 $$
     x = x_{starndard} * \sigma + \mu
 $$
 
 # Method 1: Central Limit Theorem
 
-[Central limit theorem](https://en.wikipedia.org/wiki/Central_limit_theorem) states that the mean of a *sum* of samples from *any* distribution approaches *Normal* as the size of the sample increases. This is really cool. Regardless how our original values are distributed, if we sum them up, we'll get an (approximate) Normal distribution! 
+[Central limit theorem](https://en.wikipedia.org/wiki/Central_limit_theorem) states that the mean of a *sum* of samples from *any* distribution approaches *normal* distribution as the size of the sample increases. This is really cool. Regardless of how our original values are distributed, if we sum them up we get an (approximate) normal distribution! 
 
 As little as ten elements in a sample is sufficient to approximate the normal distrubution quite closely. Here's the plan:
 
-1. Generate 10 samples from our uniform random numbers generator, and add them up. 
+1. Generate 10 samples from our uniform random numbers generator. 
+1. Sum them up. 
 0. Repeate this process 10,000 times to obtain 10,000 *normally* distributed samples.
-0. Plot our distribution and compare it to the theoretical Normal disbribution to see if get the right result.
+0. Plot our distribution and compare it to the theoretical normal disbribution to see if get the right result.
 
 Below is the annotated code in **R** language. You can easily re-implement this in any other language.
 
@@ -52,12 +54,12 @@ head(samples_matrix, n = 2)
 ```
 
 ```
-##           [,1]      [,2]      [,3]      [,4]      [,5]      [,6]
-## [1,] 0.8519617 0.4016139 0.9039751 0.6856472 0.9563421 0.7233955
-## [2,] 0.4332673 0.2631673 0.3856513 0.4832789 0.8754824 0.5802555
-##            [,7]      [,8]      [,9]      [,10]
-## [1,] 0.46250812 0.2742299 0.9106295 0.07957668
-## [2,] 0.06801036 0.6076916 0.7865068 0.12823557
+##           [,1]      [,2]      [,3]      [,4]      [,5]       [,6]
+## [1,] 0.9727642 0.5018574 0.3576453 0.8427131 0.4238725 0.32359105
+## [2,] 0.6406173 0.1055573 0.6640449 0.7001536 0.9661355 0.03897372
+##           [,7]      [,8]      [,9]     [,10]
+## [1,] 0.8323036 0.2403960 0.4343607 0.9390714
+## [2,] 0.8014148 0.9892574 0.3761951 0.5546839
 ```
 
 
@@ -74,11 +76,11 @@ true_normal.y <- dnorm(true_normal.x, mean=0, sd=1)
 lines(true_normal.x, true_normal.y, col="red")
 ```
 
-![]({{site.baseurl}}/assets/Sampling_From_a_Normal_Distribution_files/figure-html/unnamed-chunk-5-1.png)<!-- -->
+![](Sampling_From_a_Normal_Distribution_files/figure-html/unnamed-chunk-5-1.png)<!-- -->
 
 # Inverse Transform Sampling
 
-Inverse transform sampling relies on the fact, that if $X$ a random variable, $F$ is its cumulative distrubtion function (i.e. $F(x)$ is the probability of the value $\le$ x) then $F(x)$ is distributed *uniformly*. Let's test this statement:
+Inverse transform sampling relies on the fact that if $X$ is a random variable, $F$ is its cumulative distribution function (i.e. $F(x)$ is the probability of the value being $\le x$ ) then $F(x)$ is distributed *uniformly*. Let's test this statement:
 
 
 ```r
@@ -90,18 +92,18 @@ inverse_transform <- function () {
 inverse_transform()
 ```
 
-![]({{site.baseurl}}/assets/Sampling_From_a_Normal_Distribution_files/figure-html/unnamed-chunk-6-1.png)<!-- -->
+![](Sampling_From_a_Normal_Distribution_files/figure-html/unnamed-chunk-6-1.png)<!-- -->
 
-Indeed, a comulative distrition function is approximately uniform. So, if we know a CDF $F$ for a *Normal* distribution, we can generate sample from a Normal distribution via the following steps:
+Indeed, a comulative distribution function is approximately uniform. So, if we know a CDF $F$ for a *Normal* distribution, we can generate samples from the Normal distribution via the following steps:
 
 1. Generate samples $u$ from the *uniform* distribution
 2. Calculate $x = F^{-1}(u)$, where $F$ is the CDF for the Normal distribution. Then $x$ will be normally distriubted.
 
-However, this method is not very efficient for continuous cases where the $CDF$ doens't have an analytic integral. Normal distribution is such an example. Because of this, other methods are more popular.
+However, this method is not very efficient for continuous cases where the cumilative distribution function $CDF$ doesn't have an analytic integral. Normal distribution is such an example. Because of this, other methods are more popular.
 
 # Box-Muller Transform
 
-The box Box-Muller Transform algorithms transforms two *uniformly* distributed variables to two *normally* distributed variable. You can find the details on Wikipedia, https://en.wikipedia.org/wiki/Box%E2%80%93Muller_transform. Below is the implementation.
+[The Box-Muller Transform](https://en.wikipedia.org/wiki/Box%E2%80%93Muller_transform. Below is the implementation) algorithm transforms two *uniformly* distributed variables into two *normally* distributed variables. The implementation is below.
 
 
 First, let's define some constants:
@@ -127,11 +129,11 @@ head(samples_matrix, n = 2)
 
 ```
 ##           [,1]      [,2]
-## [1,] 0.2499767 0.4549621
-## [2,] 0.1435848 0.4526420
+## [1,] 0.1982855 0.4757175
+## [2,] 0.1236461 0.9002370
 ```
 
-Apply the Box-Muller transform to obtain *normally* distributed sample. Both variables $z_{0}$ and $z_{1}$ will be normally distributed:
+Apply the Box-Muller transform to obtain *normally* distributed samples. Both variables $z_{0}$ and $z_{1}$ will be normally distributed:
 
 ```r
 z0 = sqrt(-2 * log(samples_matrix[,1])) * cos(two_pi * samples_matrix[,2])
@@ -140,10 +142,10 @@ head(z0)
 ```
 
 ```
-## [1] -1.5989371 -1.8836124  0.2498332  2.3424231 -1.4321554 -1.5217890
+## [1] -1.77801793  1.65595782  0.63486864  0.02115269 -0.10711628  0.75609500
 ```
 
-Let's combine $z_{0}$ and $z_{1}$ into a single array $z$. Let's plot the density function of $z$ and compare it to the true normal distribution:
+Let's combine $z_{0}$ and $z_{1}$ into a single array $z$, plot the density function of $z$, and compare it to the true normal distribution:
 
 ```r
 z = cbind(z0, z1)
@@ -154,6 +156,6 @@ true_normal.y <- dnorm(true_normal.x, mean=0, sd=1)
 lines(true_normal.x, true_normal.y, col="red")
 ```
 
-![]({{site.baseurl}}/assets/Sampling_From_a_Normal_Distribution_files/figure-html/unnamed-chunk-11-1.png)<!-- -->
+![](Sampling_From_a_Normal_Distribution_files/figure-html/unnamed-chunk-11-1.png)<!-- -->
 
 As we can see, Box-Muller transform indeed produces normally distributed values.
