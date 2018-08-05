@@ -52,12 +52,12 @@ head(samples_matrix, n = 2)
 ```
 
 ```
-##           [,1]      [,2]       [,3]      [,4]      [,5]      [,6]
-## [1,] 0.9815679 0.1646868 0.46504853 0.3870014 0.4057999 0.1386880
-## [2,] 0.7057564 0.1965826 0.01534642 0.9303360 0.6086665 0.8662761
-##           [,7]       [,8]      [,9]      [,10]
-## [1,] 0.6065263 0.19273831 0.5401472 0.19706921
-## [2,] 0.5921485 0.06562089 0.6476667 0.08863949
+##           [,1]      [,2]        [,3]      [,4]      [,5]      [,6]
+## [1,] 0.1550154 0.6081589 0.524891462 0.8443432 0.2974440 0.4264723
+## [2,] 0.1760678 0.4134619 0.004717798 0.7105235 0.3728931 0.8227863
+##           [,7]      [,8]      [,9]     [,10]
+## [1,] 0.8957022 0.6740209 0.8091838 0.9741247
+## [2,] 0.9284858 0.5291920 0.3129438 0.5810235
 ```
 
 
@@ -74,7 +74,7 @@ true_normal.y <- dnorm(true_normal.x, mean=0, sd=1)
 lines(true_normal.x, true_normal.y, col="red")
 ```
 
-![]({{ site.baseurl }}/assets/Manually_sampling_from_distributions_files/figure-html/unnamed-chunk-5-1.png)<!-- -->
+![]({{site.baseurl}}/assets/Sampling_From_a_Normal_Distribution_files/figure-html/unnamed-chunk-5-1.png)<!-- -->
 
 # Inverse Transform Sampling
 
@@ -90,7 +90,7 @@ inverse_transform <- function () {
 inverse_transform()
 ```
 
-![]({{ site.baseurl }}/assets/Manually_sampling_from_distributions_files/figure-html/unnamed-chunk-6-1.png)<!-- -->
+![]({{site.baseurl}}/assets/Sampling_From_a_Normal_Distribution_files/figure-html/unnamed-chunk-6-1.png)<!-- -->
 
 Indeed, a comulative distrition function is approximately uniform. So, if we know a CDF $F$ for a *Normal* distribution, we can generate sample from a Normal distribution via the following steps:
 
@@ -127,8 +127,8 @@ head(samples_matrix, n = 2)
 
 ```
 ##           [,1]      [,2]
-## [1,] 0.6277923 0.9219857
-## [2,] 0.3922033 0.7947755
+## [1,] 0.8666131 0.6518296
+## [2,] 0.4394714 0.2100527
 ```
 
 Apply the Box-Muller transform to obtain *normally* distributed sample. Both variables $z_{0}$ and $z_{1}$ will be normally distributed:
@@ -140,7 +140,7 @@ head(z0)
 ```
 
 ```
-## [1]  0.8513094  0.3798598 -1.5203739  0.2343846 -0.5617058  1.5486142
+## [1] -0.3095230  0.3184909 -0.2394092 -1.0529899  0.5878480  2.9463914
 ```
 
 Let's combine $z_{0}$ and $z_{1}$ into a single array $z$. Let's plot the density function of $z$ and compare it to the true normal distribution:
@@ -154,6 +154,6 @@ true_normal.y <- dnorm(true_normal.x, mean=0, sd=1)
 lines(true_normal.x, true_normal.y, col="red")
 ```
 
-![]({{ site.baseurl }}/assets/Manually_sampling_from_distributions_files/figure-html/unnamed-chunk-11-1.png)<!-- -->
+![]({{site.baseurl}}/assets/Sampling_From_a_Normal_Distribution_files/figure-html/unnamed-chunk-11-1.png)<!-- -->
 
-As we can see Box-Muller transform indeed produces a normally distributed varibles. 
+As we can see, Box-Muller transform indeed produces normally distributed values.
