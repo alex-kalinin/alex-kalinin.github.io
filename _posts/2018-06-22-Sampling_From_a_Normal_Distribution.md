@@ -76,7 +76,7 @@ true_normal.y <- dnorm(true_normal.x, mean=0, sd=1)
 lines(true_normal.x, true_normal.y, col="red")
 ```
 
-![](Sampling_From_a_Normal_Distribution_files/figure-html/unnamed-chunk-5-1.png)<!-- -->
+![]({{site.baseurl}}/assets/Sampling_From_a_Normal_Distribution_files/figure-html/unnamed-chunk-5-1.png)<!-- -->
 
 # Inverse Transform Sampling
 
@@ -92,7 +92,7 @@ inverse_transform <- function () {
 inverse_transform()
 ```
 
-![](Sampling_From_a_Normal_Distribution_files/figure-html/unnamed-chunk-6-1.png)<!-- -->
+![]({{site.baseurl}}/assets/Sampling_From_a_Normal_Distribution_files/figure-html/unnamed-chunk-6-1.png)<!-- -->
 
 Indeed, a comulative distribution function is approximately uniform. So, if we know a CDF $F$ for a *Normal* distribution, we can generate samples from the Normal distribution via the following steps:
 
@@ -156,6 +156,6 @@ true_normal.y <- dnorm(true_normal.x, mean=0, sd=1)
 lines(true_normal.x, true_normal.y, col="red")
 ```
 
-![](Sampling_From_a_Normal_Distribution_files/figure-html/unnamed-chunk-11-1.png)<!-- -->
+![]({{site.baseurl}}/assets/Sampling_From_a_Normal_Distribution_files/figure-html/unnamed-chunk-11-1.png)<!-- -->
 
 As we can see, Box-Muller transform indeed produces normally distributed values.
