@@ -54,15 +54,15 @@ head(samples_matrix, n = 2)
 ```
 
 ```
-##            [,1]      [,2]      [,3]      [,4]      [,5]       [,6]
-## [1,] 0.03933206 0.7241498 0.1446825 0.3169978 0.8919487 0.33594762
-## [2,] 0.64465165 0.8329801 0.1603393 0.5068550 0.1904868 0.00582479
-##           [,7]      [,8]      [,9]     [,10]
-## [1,] 0.2285087 0.4911254 0.8602284 0.3366118
-## [2,] 0.3011248 0.3835497 0.4691178 0.6293979
+##           [,1]      [,2]      [,3]      [,4]      [,5]      [,6]      [,7]
+## [1,] 0.6708675 0.9256958 0.3184134 0.2097252 0.5656719 0.3737190 0.6290554
+## [2,] 0.2276532 0.7586025 0.1942285 0.2464669 0.7581034 0.5165909 0.3601892
+##            [,8]      [,9]     [,10]
+## [1,] 0.03617219 0.1564448 0.4083421
+## [2,] 0.31332181 0.7788250 0.8252613
 ```
 
-Now calculate the *mean* of each row to get a variable distributed Normally, per Central Limit Theorem. We use *mean* instead of the *sum* for convenience. In our case the *mean* is simply the sum divided by 10 (the number of values in each row). 
+Now we calculate the *mean* of each row to get a normally distributed varible, per Central Limit Theorem. We use the *mean* instead of the *sum* for convenience. In our case the *mean* is simply the *sum* divided by 10 (the number of values in each row), so either value will stil be a normally distributed variable.
 
 ```r
 x <- rowMeans(samples_matrix)
@@ -133,9 +133,9 @@ head(samples_matrix, n = 2)
 ```
 
 ```
-##            [,1]        [,2]
-## [1,] 0.01229685 0.007826677
-## [2,] 0.06137612 0.390560562
+##            [,1]      [,2]
+## [1,] 0.01454372 0.2205922
+## [2,] 0.89621633 0.9100733
 ```
 
 Apply the Box-Muller transform to obtain *normally* distributed samples. Both variables $z_{0}$ and $z_{1}$ will be normally distributed:
@@ -147,7 +147,7 @@ head(z0)
 ```
 
 ```
-## [1]  2.96235860 -1.82564046  0.24120665 -0.14632321 -0.56263388  0.08571353
+## [1]  0.5344225  0.3953718  0.9989450 -1.8771368 -0.3415829  1.6800842
 ```
 
 Let's combine $z_{0}$ and $z_{1}$ into a single array $z$, plot the density function of $z$, and compare it to the true normal distribution:
