@@ -54,12 +54,12 @@ head(samples_matrix, n = 2)
 ```
 
 ```
-##           [,1]      [,2]      [,3]      [,4]      [,5]      [,6]      [,7]
-## [1,] 0.6708675 0.9256958 0.3184134 0.2097252 0.5656719 0.3737190 0.6290554
-## [2,] 0.2276532 0.7586025 0.1942285 0.2464669 0.7581034 0.5165909 0.3601892
-##            [,8]      [,9]     [,10]
-## [1,] 0.03617219 0.1564448 0.4083421
-## [2,] 0.31332181 0.7788250 0.8252613
+##           [,1]       [,2]      [,3]      [,4]      [,5]      [,6]
+## [1,] 0.2227126 0.46465885 0.1212060 0.7903519 0.1673286 0.5359157
+## [2,] 0.9903849 0.03789528 0.6661771 0.9880202 0.4000945 0.1266350
+##           [,7]      [,8]      [,9]     [,10]
+## [1,] 0.4037443 0.5459629 0.2169012 0.9938253
+## [2,] 0.8378433 0.5050475 0.4540302 0.8245619
 ```
 
 Now we calculate the *mean* of each row to get a normally distributed varible, per Central Limit Theorem. We use the *mean* instead of the *sum* for convenience. In our case the *mean* is simply the *sum* divided by 10 (the number of values in each row), so either value will stil be a normally distributed variable.
@@ -85,7 +85,7 @@ lines(true_normal.x, true_normal.y, col="red")
 
 # Inverse Transform Sampling
 
-Inverse transform sampling relies on the fact that if $X$ is a random variable, $F$ is its cumulative distribution function (i.e. $F(x)$ is the probability of the value being $\le x$ ) then $F(x)$ is distributed *uniformly*. Let's test this statement:
+Inverse transform sampling relies on the fact that if $X$ is a random variable from *any* disribution, $F$ is its cumulative distribution function (i.e. $F(x)$ is the probability of the value being $\le x$ ) then $F(x)$ is distributed *uniformly*. Let's test this statement:
 
 
 ```r
@@ -99,7 +99,7 @@ inverse_transform()
 
 ![]({{site.baseurl}}/assets/Sampling_From_a_Normal_Distribution_files/figure-html/unnamed-chunk-7-1.png)<!-- -->
 
-Indeed, a comulative distribution function is approximately uniform. So, if we know a CDF $F$ for a *Normal* distribution, we can generate samples from the Normal distribution via the following steps:
+Indeed, a cumulative distribution function of our *normally* distributed variable is approximately uniform. So, if we know a CDF $F$ for a *Normal* distribution, we can generate samples from the Normal distribution via the following steps:
 
 1. Generate samples $u$ from the *uniform* distribution
 2. Calculate $x = F^{-1}(u)$, where $F$ is the CDF for the Normal distribution. Then $x$ will be normally distriubted.
@@ -134,8 +134,8 @@ head(samples_matrix, n = 2)
 
 ```
 ##            [,1]      [,2]
-## [1,] 0.01454372 0.2205922
-## [2,] 0.89621633 0.9100733
+## [1,] 0.08725552 0.6857970
+## [2,] 0.10873980 0.1670919
 ```
 
 Apply the Box-Muller transform to obtain *normally* distributed samples. Both variables $z_{0}$ and $z_{1}$ will be normally distributed:
@@ -147,7 +147,7 @@ head(z0)
 ```
 
 ```
-## [1]  0.5344225  0.3953718  0.9989450 -1.8771368 -0.3415829  1.6800842
+## [1] -0.8669723  1.0484016  0.6934678  0.8762277  2.3285528 -1.3461350
 ```
 
 Let's combine $z_{0}$ and $z_{1}$ into a single array $z$, plot the density function of $z$, and compare it to the true normal distribution:
