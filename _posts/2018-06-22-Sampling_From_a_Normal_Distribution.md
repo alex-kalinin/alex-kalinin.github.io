@@ -6,7 +6,6 @@ output:
     keep_md: yes
 ---
 
-
 Most (if not all) programming languages have random number functions that produce *uniformly* distributed values. What about random numbers from an arbiutrary, *non-unform* distribution?
 
 In this post we'll explore several methods to generate random numbers from a *Normal* distribution. To simplify things a bit we'll work with a *standard* Normal distribution. This distrubtion has a mean $\mu = 0$, and a standard deviation $\sigma = 1$. This choice doesn't limit us in any way because there's a one-to-one mapping between the standard Normal distrubtion and any other normal distribution with the mean of $\mu$ and variance of $\sigma$:
@@ -54,12 +53,12 @@ head(samples_matrix, n = 2)
 ```
 
 ```
-##           [,1]       [,2]      [,3]      [,4]      [,5]      [,6]
-## [1,] 0.2227126 0.46465885 0.1212060 0.7903519 0.1673286 0.5359157
-## [2,] 0.9903849 0.03789528 0.6661771 0.9880202 0.4000945 0.1266350
-##           [,7]      [,8]      [,9]     [,10]
-## [1,] 0.4037443 0.5459629 0.2169012 0.9938253
-## [2,] 0.8378433 0.5050475 0.4540302 0.8245619
+##           [,1]      [,2]      [,3]       [,4]      [,5]      [,6]
+## [1,] 0.4542321 0.2451879 0.2353085 0.96663473 0.6104702 0.9702461
+## [2,] 0.4678893 0.7930820 0.2693637 0.05082366 0.9742491 0.1981950
+##            [,7]      [,8]      [,9]     [,10]
+## [1,] 0.26194008 0.2509255 0.1532633 0.6846992
+## [2,] 0.01963411 0.9266122 0.6407867 0.5159307
 ```
 
 Now we calculate the *mean* of each row to get a normally distributed varible, per Central Limit Theorem. We use the *mean* instead of the *sum* for convenience. In our case the *mean* is simply the *sum* divided by 10 (the number of values in each row), so either value will stil be a normally distributed variable.
@@ -133,9 +132,9 @@ head(samples_matrix, n = 2)
 ```
 
 ```
-##            [,1]      [,2]
-## [1,] 0.08725552 0.6857970
-## [2,] 0.10873980 0.1670919
+##           [,1]      [,2]
+## [1,] 0.8622749 0.3684707
+## [2,] 0.9619202 0.7154491
 ```
 
 Apply the Box-Muller transform to obtain *normally* distributed samples. Both variables $z_{0}$ and $z_{1}$ will be normally distributed:
@@ -147,7 +146,7 @@ head(z0)
 ```
 
 ```
-## [1] -0.8669723  1.0484016  0.6934678  0.8762277  2.3285528 -1.3461350
+## [1] -0.36883146 -0.06001878  0.80281589  0.57984132  0.19074923  1.39058341
 ```
 
 Let's combine $z_{0}$ and $z_{1}$ into a single array $z$, plot the density function of $z$, and compare it to the true normal distribution:
