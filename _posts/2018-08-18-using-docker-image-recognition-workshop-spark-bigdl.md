@@ -61,4 +61,7 @@ Don't miss the leading exclamation mark (!). It tells Jupyter that this is a she
 2. Transfer - Flowers - Analytics Zoo.ipynb
 ```
 
-Open each notebook and follow the instructions. If you have any questions, feel free to contact me via LinkedIn or Github. 
+Open each notebook and follow the instructions. **Important**: do not save any important work in this Jupyter environment. The docker container doesn't preserve its state. Once you restart it, all changes will be lost. Download everything you want to keep to you local computer. 
+
+
+If you have any questions, feel free to contact me via LinkedIn or Github. 
