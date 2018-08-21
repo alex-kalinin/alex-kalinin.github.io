@@ -5,7 +5,9 @@ featured: true
 
 ### Links
 
-1. **Slides**: [https://www.slideshare.net/AlexKalinin2/transfer-learning-with-apache-spark-and-big-dl](https://www.slideshare.net/AlexKalinin2/transfer-learning-with-apache-spark-and-big-dl)
+1. **Slides**: 
+    1. **Part 1 -- Image Recogntion**: [https://www.slideshare.net/AlexKalinin2/intro-to-image-recognition-with-deep-learning-using-apache-spark-and-bigdl-81058094](https://www.slideshare.net/AlexKalinin2/intro-to-image-recognition-with-deep-learning-using-apache-spark-and-bigdl-81058094)
+    1. **Part 2 -- Transfer Learning**: [https://www.slideshare.net/AlexKalinin2/transfer-learning-with-apache-spark-and-big-dl](https://www.slideshare.net/AlexKalinin2/transfer-learning-with-apache-spark-and-big-dl)
 2. **Notebooks**: [https://github.com/alex-kalinin/lenet-bigdl](https://github.com/alex-kalinin/lenet-bigdl)
 3. **Meetup page**: [https://www.meetup.com/datariders/events/252497163/](https://www.meetup.com/datariders/events/252497163/)
 
